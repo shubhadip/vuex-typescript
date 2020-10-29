@@ -1,16 +1,16 @@
 import { DispatchOptions } from "vuex/types";
-import { IStoreActions, IStoreGetters } from "./interfaces";
+import { StoreActions, StoreGetters } from "./interfaces";
 
 export type CustomDispatch = {
-  dispatch<K extends keyof IStoreActions>(
+  dispatch<K extends keyof StoreActions>(
     key: K,
-    payload?: Parameters<IStoreActions[K]>[1],
+    payload?: Parameters<StoreActions[K]>[1],
     options?: DispatchOptions
-  ): ReturnType<IStoreActions[K]>;
+  ): ReturnType<StoreActions[K]>;
 };
 
 export type CustomRootGetter = {
   rootGetters: {
-    [K in keyof IStoreGetters]: ReturnType<IStoreGetters[K]>;
+    [K in keyof StoreGetters]: ReturnType<StoreGetters[K]>;
   };
 };

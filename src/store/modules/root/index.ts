@@ -13,7 +13,7 @@ const modules: ModuleTree<IRootState> = {
   counter1Module
 };
 
-const counter: Module<IRootState, IRootState> = {
+const root: Module<IRootState, IRootState> = {
   state,
   getters,
   mutations,
@@ -21,4 +21,4 @@ const counter: Module<IRootState, IRootState> = {
   modules
 };
 
-export default counter;
+export default root;

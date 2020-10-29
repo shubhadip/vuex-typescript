@@ -6,11 +6,11 @@ import { mutations } from "./mutations";
 import { state } from "./state";
 
 // Module
-const counter: Module<Counter1StateTypes, IRootState> = {
+const counter1: Module<Counter1StateTypes, IRootState> = {
   state,
   getters,
   mutations,
   actions
 };
 
-export default counter;
+export default counter1;

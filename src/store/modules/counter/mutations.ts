@@ -12,5 +12,5 @@ export const mutations: MutationTree<CounterStateTypes> &
   },
   [MutationTypes.SET_ROOT_DISPATCH](state, payload: boolean) {
     state.rootDispatch = payload;
-  },
+  }
 };

@@ -8,11 +8,15 @@
         <button class="btn" @click="getCounter">
             Increment Counter
         </button>
+        {{('test')}}
         <button class="btn" @click="resetCounter">
             Reset Counter
         </button>
         <button class="btn" @click="setRootDispatch">
             Root Dispatch
+        </button>
+        <button class="btn" @click="crossCounterDispatch">
+            Cross Counter Dispatch
         </button>
     </div>
 </div>
@@ -35,8 +39,8 @@ import {
 
 export default defineComponent({
     name: "CompositionAPIComponent",
-    setup() {
-        const store = useStore();
+    setup(props) {
+        const store = useStore()
         const counter = computed(() => store.getters.counterValue);
         const doubledCounter = computed(() => store.getters.doubledCounter);
         const isRootDispatchSet = computed(() => store.getters.getRootDispatch);
@@ -52,13 +56,18 @@ export default defineComponent({
             await store.dispatch(AllActionTypes.GET_COUNTER, 100);
         }
 
+        function crossCounterDispatch() {
+            store.dispatch(AllActionTypes.CALL_COUNTER1)
+        }
+
         return {
             counter,
             doubledCounter,
             resetCounter,
             getCounter,
             setRootDispatch,
-            isRootDispatchSet
+            isRootDispatchSet,
+            crossCounterDispatch
         };
     }
 });

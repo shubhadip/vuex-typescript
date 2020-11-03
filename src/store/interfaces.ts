@@ -36,11 +36,10 @@ export interface RootActionsTypes {
     { commit }: AugmentedActionContextRoot,
     payload: string
   ): void;
-  [RootATypes.COUNTER_CHECK](
-    { commit }: AugmentedActionContextRoot ): void;
+  [RootATypes.COUNTER_CHECK]({ commit }: AugmentedActionContextRoot): void;
 }
 
-/*********************** COUNTER MODULE TYPES  ***********************/
+/*********************** COUNTER1 MODULE TYPES  ***********************/
 
 export interface Counter1StateTypes {
   counter1?: number;
@@ -68,18 +67,21 @@ export interface CounterActionsTypes1 {
     { commit }: AugmentedActionContextCounter1,
     payload: number
   ): Promise<number>;
+  [CounterA1Types.CALL_COUNTER1](
+    { commit }: AugmentedActionContextCounter1
+  ): void;
 }
 
 /*********************** COUNTER MODULE TYPES  ***********************/
 export interface CounterStateTypes {
   counter?: number;
-  rootDispatch?: boolean
+  rootDispatch?: boolean;
 }
 
 export interface CounterGettersTypes {
   doubledCounter(state: CounterStateTypes): number;
   counterValue(state: CounterStateTypes): number;
-  getRootDispatch(state: CounterStateTypes): boolean
+  getRootDispatch(state: CounterStateTypes): boolean;
 }
 
 export type CounterMutationsTypes<S = CounterStateTypes> = {
@@ -99,6 +101,14 @@ export interface CounterActionsTypes {
   [CounterATypes.GET_COUNTER](
     { commit }: AugmentedActionContext,
     payload: number
+  ): void;
+  [CounterATypes.SET_ROOT_DISPATCH](
+    { commit }: AugmentedActionContext,
+    payload: number
+  ): void;
+  [CounterATypes.CALL_COUNTER](
+    { commit }: AugmentedActionContext,
+    payload: boolean
   ): void;
 }
 

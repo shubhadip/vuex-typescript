@@ -1,3 +1,4 @@
 export enum ActionTypes {
-  GET_COUNTER1 = "GET_COUNTER1"
+  GET_COUNTER1 = "GET_COUNTER1",
+  CALL_COUNTER1 = "CALL_COUNTER1"
 }

@@ -8,6 +8,6 @@ export const actions: ActionTree<IRootState, IRootState> & RootActionsTypes = {
     commit(MutationTypes.UPDATE_VERSION, payload);
   },
   [ActionTypes.COUNTER_CHECK]({ dispatch }) {
-    dispatch(ActionTypes.SET_ROOT_DISPATCH, true)
+    dispatch(ActionTypes.SET_ROOT_DISPATCH, true);
   }
 };

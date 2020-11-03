@@ -13,7 +13,7 @@ export const getters: GetterTree<CounterStateTypes, IRootState> &
   doubledCounter: (state: CounterStateTypes) => {
     return state.counter || 0 * 2;
   },
-  getRootDispatch:( state: CounterStateTypes) => {
+  getRootDispatch: (state: CounterStateTypes) => {
     return state.rootDispatch || false;
   }
 };

@@ -1,4 +1,4 @@
-# vue3store
+# vuex-typescript
 
 ## Project setup
 ```

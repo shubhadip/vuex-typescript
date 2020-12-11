@@ -18,7 +18,6 @@ export const actions: ActionTree<Counter1StateTypes, IRootState> &
     });
   },
   [AllActionTypes.CALL_COUNTER1]({ dispatch }) {
-    debugger
       dispatch(AllActionTypes.CALL_COUNTER, true, {root: true});
   }
 };

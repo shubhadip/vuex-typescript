@@ -15,8 +15,8 @@ export const actions: ActionTree<CounterStateTypes, IRootState> &
   [ActionTypes.SET_ROOT_DISPATCH]({ commit }) {
     commit(MutationTypes.SET_ROOT_DISPATCH, true);
   },
-  [ActionTypes.CALL_COUNTER]({ commit }, payload: boolean) {
-    debugger
-    console.log('called', payload);
+  [ActionTypes.CALL_COUNTER](context, payload: boolean) {
+    console.log("called", context);
+    console.log("called", payload);
   }
 };

@@ -5,6 +5,8 @@ import { MutationTypes as CounterM1Types } from "./modules/counter1/mutation-typ
 import { ActionTypes as CounterA1Types } from "./modules/counter1/action-types";
 import { MutationTypes as RootMTypes } from "./modules/root/mutation-types";
 import { ActionTypes as RootATypes } from "./modules/root/action-types";
+import { BikeMutationTypes } from "./modules/counter/bikecounter/mutation-types";
+import { BikeActionTypes } from "./modules/counter/bikecounter/action-types";
 
 export interface IRootState {
   root: boolean;
@@ -67,9 +69,9 @@ export interface CounterActionsTypes1 {
     { commit }: AugmentedActionContextCounter1,
     payload: number
   ): Promise<number>;
-  [CounterA1Types.CALL_COUNTER1](
-    { commit }: AugmentedActionContextCounter1
-  ): void;
+  [CounterA1Types.CALL_COUNTER1]({
+    commit
+  }: AugmentedActionContextCounter1): void;
 }
 
 /*********************** COUNTER MODULE TYPES  ***********************/
@@ -112,11 +114,31 @@ export interface CounterActionsTypes {
   ): void;
 }
 
-export interface StoreActions
-  extends RootActionsTypes,
-    CounterActionsTypes,
-    CounterActionsTypes1 {}
-export interface StoreGetters
-  extends IRootGettersTypes,
-    CounterGettersTypes,
-    Counter1GettersTypes {}
+/*********************** BIKE COUNTER MODULE TYPES  ***********************/
+export interface BikeCounterStateTypes extends CounterStateTypes {
+  kind: string;
+  bikeSpecific: string;
+}
+
+export interface BikeCounterGettersTypes extends CounterGettersTypes {
+  getBikeSpecific(state: BikeCounterStateTypes): string;
+  counterType(state: BikeCounterStateTypes): number;
+}
+
+export type BikeCounterMutationsTypes<S = BikeCounterStateTypes> = {
+  [BikeMutationTypes.SET_BIKE_SPECIFIC](state: S, payload: string): void;
+};
+
+export type BikeAugmentedActionContext = {
+  commit<K extends keyof BikeCounterMutationsTypes>(
+    key: K,
+    payload: Parameters<BikeCounterMutationsTypes[K]>[1]
+  ): ReturnType<BikeCounterMutationsTypes[K]>;
+} & Omit<ActionContext<BikeCounterStateTypes, IRootState>, "commit">;
+
+export interface BikeCounterActionTypes extends CounterActionsTypes {
+  [BikeActionTypes.SET_BIKE_SPECIFIC](
+    { commit }: BikeAugmentedActionContext,
+    payload: string
+  ): void;
+}

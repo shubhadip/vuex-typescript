@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "serve-car": "vue-cli-service serve --mode car.development",
+    "serve-bike": "vue-cli-service serve --mode bike.development",
+    "build-car": "vue-cli-service build --mode car.production",
+    "build-bike": "vue-cli-service build --mode bike.production",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
@@ -14,7 +18,8 @@
     "register-service-worker": "^1.7.1",
     "vue": "^3.0.0",
     "vue-router": "^4.0.0-0",
-    "vuex": "^4.0.0-0"
+    "vuex": "^4.0.0-0",
+    "webpack-bundle-analyzer": "^4.2.0"
   },
   "devDependencies": {
     "@types/jest": "^24.0.19",

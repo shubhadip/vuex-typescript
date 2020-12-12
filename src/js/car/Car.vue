@@ -7,6 +7,23 @@
   <router-view />
 </template>
 
+<script>
+import { useStore } from "../../use/useStore";
+import counterModule from "../../store/modules/counter/index";
+
+export default {
+  name: "App",
+  setup() {
+    const store = useStore();
+
+    if (!store.hasModule("counter")) {
+      store.registerModule("counter", counterModule);
+    }
+
+    return {};
+  }
+};
+</script>
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

@@ -5,7 +5,7 @@ import {
   CounterActionsTypes1,
   IRootState
 } from "@/store/interfaces";
-import { AllActionTypes } from '@/store/action-types';
+import { AllActionTypes } from "@/store/action-types";
 
 export const actions: ActionTree<Counter1StateTypes, IRootState> &
   CounterActionsTypes1 = {
@@ -18,6 +18,6 @@ export const actions: ActionTree<Counter1StateTypes, IRootState> &
     });
   },
   [AllActionTypes.CALL_COUNTER1]({ dispatch }) {
-      dispatch(AllActionTypes.CALL_COUNTER, true, {root: true});
+    dispatch(AllActionTypes.CALL_COUNTER, true, { root: true });
   }
 };

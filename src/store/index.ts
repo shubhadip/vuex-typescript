@@ -9,11 +9,13 @@ import root from "./modules/root";
 export const store = createStore<IRootState>(root);
 
 type StoreModules = {
-  counter: CounterStoreModuleTypes;
-  counter1: Counter1StoreModuleTypes;
+  counterModule: CounterStoreModuleTypes;
+  counterModule1: Counter1StoreModuleTypes;
   root: RootStoreModuleTypes;
 };
 
-export type Store = CounterStoreModuleTypes<Pick<StoreModules, "counter">> &
-  Counter1StoreModuleTypes<Pick<StoreModules, "counter1">> &
+export type Store = CounterStoreModuleTypes<
+  Pick<StoreModules, "counterModule">
+> &
+  Counter1StoreModuleTypes<Pick<StoreModules, "counterModule1">> &
   RootStoreModuleTypes<Pick<StoreModules, "root">>;

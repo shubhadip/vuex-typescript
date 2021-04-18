@@ -1,4 +1,4 @@
-import { ActionContext } from "vuex";
+import { ActionContext, DispatchOptions } from "vuex";
 import { MutationTypes as CounterMTypes } from "./modules/counter/mutation-types";
 import { ActionTypes as CounterATypes } from "./modules/counter/action-types";
 import { MutationTypes as CounterM1Types } from "./modules/counter1/mutation-types";
@@ -24,19 +24,32 @@ export type RootMutationsTypes<S = IRootState> = {
   [RootMTypes.UPDATE_VERSION](state: S, payload: string): void;
 };
 
+/**
+ * probably this can be moved inside individual module
+ * as counterTypes.ts and then can be imported here
+ */
 type AugmentedActionContextRoot = {
   commit<K extends keyof RootMutationsTypes>(
     key: K,
     payload: Parameters<RootMutationsTypes[K]>[1]
   ): ReturnType<RootMutationsTypes[K]>;
-} & Omit<ActionContext<IRootState, IRootState>, "commit">;
+} & Omit<ActionContext<IRootState, IRootState>, "commit"> & {
+    dispatch<K extends keyof StoreActions>(
+      key: K,
+      payload?: Parameters<StoreActions[K]>[1],
+      options?: DispatchOptions
+    ): ReturnType<StoreActions[K]>;
+  };
 
 export interface RootActionsTypes {
   [RootATypes.UPDATE_VERSION](
     { commit }: AugmentedActionContextRoot,
     payload: string
   ): void;
-  [RootATypes.COUNTER_CHECK]({ commit }: AugmentedActionContextRoot): void;
+  [RootATypes.COUNTER_CHECK](
+    { dispatch }: AugmentedActionContextRoot,
+    payload: boolean
+  ): void;
 }
 
 /*********************** COUNTER1 MODULE TYPES  ***********************/
@@ -55,6 +68,10 @@ export type Counter1MutationsTypes<S = Counter1StateTypes> = {
   [CounterM1Types.RESET_COUNTER1](state: S): void;
 };
 
+/**
+ * probably this can be moved inside individual module
+ * as counterTypes.ts and then can be imported here
+ */
 type AugmentedActionContextCounter1 = {
   commit<K extends keyof Counter1MutationsTypes>(
     key: K,
@@ -67,9 +84,9 @@ export interface CounterActionsTypes1 {
     { commit }: AugmentedActionContextCounter1,
     payload: number
   ): Promise<number>;
-  [CounterA1Types.CALL_COUNTER1](
-    { commit }: AugmentedActionContextCounter1
-  ): void;
+  [CounterA1Types.CALL_COUNTER1]({
+    commit
+  }: AugmentedActionContextCounter1): void;
 }
 
 /*********************** COUNTER MODULE TYPES  ***********************/
@@ -104,7 +121,7 @@ export interface CounterActionsTypes {
   ): void;
   [CounterATypes.SET_ROOT_DISPATCH](
     { commit }: AugmentedActionContext,
-    payload: number
+    payload: boolean
   ): void;
   [CounterATypes.CALL_COUNTER](
     { commit }: AugmentedActionContext,
@@ -116,6 +133,7 @@ export interface StoreActions
   extends RootActionsTypes,
     CounterActionsTypes,
     CounterActionsTypes1 {}
+
 export interface StoreGetters
   extends IRootGettersTypes,
     CounterGettersTypes,

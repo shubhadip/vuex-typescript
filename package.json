@@ -7,13 +7,19 @@
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "build:client": "vue-cli-service build --dest dist/client",
+    "build:server": "VUE_APP_SSR=true vue-cli-service build --dest dist/server",
+    "build:ssr": "rm -rf ./dist && npm run build:client && npm run build:server"
   },
   "dependencies": {
+    "@vue/server-renderer": "^3.0.0-rc.5",
+    "axios": "^0.20.0",
     "core-js": "^3.6.5",
     "register-service-worker": "^1.7.1",
-    "vue": "^3.0.0",
+    "vue": "3.1.4",
     "vue-router": "^4.0.0-0",
+    "vue3-component-library": "^0.0.6",
     "vuex": "^4.0.0-0"
   },
   "devDependencies": {
@@ -36,10 +42,13 @@
     "eslint": "^6.7.2",
     "eslint-plugin-prettier": "^3.1.3",
     "eslint-plugin-vue": "^7.0.0-0",
+    "express": "^4.17.1",
     "node-sass": "^4.12.0",
     "prettier": "^1.19.1",
     "sass-loader": "^8.0.2",
     "typescript": "~3.9.3",
-    "vue-jest": "^5.0.0-0"
+    "vue-jest": "^5.0.0-0",
+    "webpack-manifest-plugin": "^2.2.0",
+    "webpack-node-externals": "^2.5.1"
   }
 }

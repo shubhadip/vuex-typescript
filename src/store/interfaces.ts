@@ -6,9 +6,16 @@ import { ActionTypes as CounterA1Types } from "./modules/counter1/action-types";
 import { MutationTypes as RootMTypes } from "./modules/root/mutation-types";
 import { ActionTypes as RootATypes } from "./modules/root/action-types";
 
+export interface IUserData {
+  id: number
+  userId: number
+  title: string
+  body: string
+}
 export interface IRootState {
   root: boolean;
   version: string;
+  userlists: any[]
 }
 
 export interface IMergedState extends IRootState {
@@ -18,10 +25,12 @@ export interface IMergedState extends IRootState {
 
 export interface IRootGettersTypes {
   getVersion(state: IRootState): string;
+  getUserList(state: IRootState): IUserData[];
 }
 
 export type RootMutationsTypes<S = IRootState> = {
   [RootMTypes.UPDATE_VERSION](state: S, payload: string): void;
+  [RootMTypes.USER_LISTS](state: S, payload: IUserData[]): void;
 };
 
 /**
@@ -49,6 +58,10 @@ export interface RootActionsTypes {
   [RootATypes.COUNTER_CHECK](
     { dispatch }: AugmentedActionContextRoot,
     payload: boolean
+  ): void;
+  [RootATypes.USER_LISTS](
+    { dispatch }: AugmentedActionContextRoot,
+    payload: IUserData[]
   ): void;
 }
 

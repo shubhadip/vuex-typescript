@@ -1,16 +1,16 @@
 import { ActionTree } from "vuex";
-import { ActionTypes } from "./action-types";
-import { MutationTypes } from "./mutation-types";
 import { RootActionsTypes, IRootState, IUserData } from "@/store/interfaces";
+import { COUNTER_STORE, ROOT_STORE } from "@/store/constants";
 
 export const actions: ActionTree<IRootState, IRootState> & RootActionsTypes = {
-  [ActionTypes.UPDATE_VERSION]({ commit }, payload: string) {
-    commit(MutationTypes.UPDATE_VERSION, payload);
+  [ROOT_STORE.ACTIONS.UPDATE_VERSION]({ commit }, payload: string) {
+    commit(ROOT_STORE.MUTATIONS.UPDATE_VERSION, payload);
   },
-  [ActionTypes.COUNTER_CHECK]({ dispatch }, payload: boolean) {
-    dispatch(ActionTypes.SET_ROOT_DISPATCH, payload);
+  [ROOT_STORE.ACTIONS.COUNTER_CHECK]({ dispatch }, payload: boolean) {
+    dispatch(COUNTER_STORE.ACTIONS.SET_ROOT_DISPATCH, payload);
+    console.log(payload);
   },
-  [ActionTypes.USER_LISTS](context, payload: IUserData[]) {
-    context.commit(MutationTypes.USER_LISTS, payload);
+  [ROOT_STORE.ACTIONS.USER_LISTS](context, payload: IUserData[]) {
+    context.commit(ROOT_STORE.MUTATIONS.USER_LISTS, payload);
   },
 };

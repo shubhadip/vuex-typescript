@@ -11,9 +11,9 @@
 <script lang="ts">
 import { computed, defineComponent, onMounted, onServerPrefetch } from 'vue'
 import axios from 'axios';
-import { AllActionTypes } from "@/store/action-types";
 import { TestWorld } from 'vue3-component-library/components/testworld'
 import { useStore } from '@/use/useStore';
+import { ROOT_STORE } from '@/store/constants';
 
 export default defineComponent({
   name:'About',
@@ -25,7 +25,7 @@ export default defineComponent({
 
     const fetchInitialData = async () => {
       const response = await axios('https://jsonplaceholder.typicode.com/posts')
-      store.dispatch(AllActionTypes.USER_LISTS, response.data || [])
+      store.dispatch(ROOT_STORE.ACTIONS.USER_LISTS, response.data || [])
     }
     
     onServerPrefetch(async () => {
@@ -33,7 +33,7 @@ export default defineComponent({
     })
 
     const listData = computed(() => {
-      return store.getters.getUserList || []
+      return store.getters[ROOT_STORE.GETTERS.USER_LISTS] || []
     });
 
     onMounted(async () => {

@@ -34,35 +34,34 @@
 <script lang="ts">
 import { defineComponent, computed } from "vue";
 import { useStore } from "@/use/useStore";
-import { AllMutationTypes } from "@/store/mutation-types";
-import { AllActionTypes } from "@/store/action-types";
 import { CounterStateTypes } from "@/store/interfaces";
+import { COUNTER1_STORE, COUNTER_STORE, ROOT_STORE } from "@/store/constants";
 
 export default defineComponent({
   name: "CompositionAPIComponent",
   setup() {
     const store = useStore();
-    const counter = computed(() => store.getters.counterValue);
+    const counter = computed(() => store.getters[COUNTER_STORE.GETTERS.COUNTER_VALUE]);
     const counterTemp = computed(
       () =>
         ((store.state.counterModule as unknown) as CounterStateTypes).counter
     );
-    const doubledCounter = computed(() => store.getters.doubledCounter);
-    const isRootDispatchSet = computed(() => store.getters.getRootDispatch);
+    const doubledCounter = computed(() => store.getters[COUNTER_STORE.GETTERS.DOUBLED_COUNTER]);
+    const isRootDispatchSet = computed(() => store.getters[COUNTER_STORE.GETTERS.GET_ROOT_DISPATCH]);
 
     function resetCounter() {
-      store.commit(AllMutationTypes.RESET_COUNTER);
+      store.commit(COUNTER_STORE.MUTATIONS.RESET_COUNTER);
     }
 
     function setRootDispatch() {
-      store.dispatch(AllActionTypes.COUNTER_CHECK, !isRootDispatchSet.value);
+      store.dispatch(ROOT_STORE.ACTIONS.COUNTER_CHECK, !isRootDispatchSet.value);
     }
     async function getCounter() {
-      await store.dispatch(AllActionTypes.GET_COUNTER, 100);
+      await store.dispatch(COUNTER_STORE.ACTIONS.GET_COUNTER, 100);
     }
 
     function crossCounterDispatch() {
-      store.dispatch(AllActionTypes.CALL_COUNTER1);
+      store.dispatch(COUNTER1_STORE.ACTIONS.CALL_COUNTER1);
     }
 
     return {

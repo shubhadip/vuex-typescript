@@ -8,5 +8,5 @@ export const getters: GetterTree<IRootState, IRootState> & IRootGettersTypes = {
   },
   [ROOT_STORE.GETTERS.USER_LISTS]: (state: IRootState): IUserData[] => {
     return state.userlists;
-  },
+  }
 };

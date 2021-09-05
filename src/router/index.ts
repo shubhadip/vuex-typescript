@@ -1,5 +1,10 @@
 import { isSSR } from "@/shared/misc";
-import { createMemoryHistory, createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
+import {
+  createMemoryHistory,
+  createRouter,
+  createWebHistory,
+  RouteRecordRaw
+} from "vue-router";
 import Home from "../views/Home.vue";
 
 const routes: Array<RouteRecordRaw> = [
@@ -26,7 +31,7 @@ const routes: Array<RouteRecordRaw> = [
 ];
 
 const router = createRouter({
-  history: isSSR ?  createMemoryHistory() : createWebHistory(),
+  history: isSSR ? createMemoryHistory() : createWebHistory(),
   routes
 });
 

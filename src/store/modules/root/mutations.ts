@@ -8,5 +8,5 @@ export const mutations: MutationTree<IRootState> & RootMutationsTypes = {
   },
   [ROOT_STORE.MUTATIONS.USER_LISTS](state, payload: IUserData[]) {
     state.userlists = payload;
-  },
+  }
 };

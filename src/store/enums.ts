@@ -16,7 +16,6 @@ export enum RootActions {
   USER_LISTS = "USER_LISTS"
 }
 
-
 export enum CounterGetters {
   COUNTER_VALUE = "COUNTER_VALUE",
   DOUBLED_COUNTER = "DOUBLED_COUNTER",
@@ -35,13 +34,13 @@ export enum CounterActions {
 
 export enum Counter1Getters {
   COUNTER_VALUE1 = "COUNTER_VALUE1",
-  DOUBLED_COUNTER1 = "DOUBLED_COUNTER1",
+  DOUBLED_COUNTER1 = "DOUBLED_COUNTER1"
 }
 export enum Counter1Mutations {
   SET_COUNTER1 = "SET_COUNTER1",
-  RESET_COUNTER1 = "RESET_COUNTER1",
+  RESET_COUNTER1 = "RESET_COUNTER1"
 }
 export enum Counter1Actions {
   GET_COUNTER1 = "GET_COUNTER1",
-  CALL_COUNTER1 = "CALL_COUNTER1",
+  CALL_COUNTER1 = "CALL_COUNTER1"
 }

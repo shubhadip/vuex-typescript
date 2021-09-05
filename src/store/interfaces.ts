@@ -1,21 +1,16 @@
 import { ActionContext, DispatchOptions } from "vuex";
-import { MutationTypes as CounterMTypes } from "./modules/counter/mutation-types";
-import { ActionTypes as CounterATypes } from "./modules/counter/action-types";
-import { MutationTypes as CounterM1Types } from "./modules/counter1/mutation-types";
-import { ActionTypes as CounterA1Types } from "./modules/counter1/action-types";
-import { MutationTypes as RootMTypes } from "./modules/root/mutation-types";
-import { ActionTypes as RootATypes } from "./modules/root/action-types";
+import { COUNTER1_STORE, COUNTER_STORE, ROOT_STORE } from "./constants";
 
 export interface IUserData {
-  id: number
-  userId: number
-  title: string
-  body: string
+  id: number;
+  userId: number;
+  title: string;
+  body: string;
 }
 export interface IRootState {
   root: boolean;
   version: string;
-  userlists: any[]
+  userlists: any[];
 }
 
 export interface IMergedState extends IRootState {
@@ -24,13 +19,13 @@ export interface IMergedState extends IRootState {
 }
 
 export interface IRootGettersTypes {
-  getVersion(state: IRootState): string;
-  getUserList(state: IRootState): IUserData[];
+  [ROOT_STORE.GETTERS.UPDATE_VERSION](state: IRootState): string;
+  [ROOT_STORE.GETTERS.USER_LISTS](state: IRootState): IUserData[];
 }
 
 export type RootMutationsTypes<S = IRootState> = {
-  [RootMTypes.UPDATE_VERSION](state: S, payload: string): void;
-  [RootMTypes.USER_LISTS](state: S, payload: IUserData[]): void;
+  [ROOT_STORE.MUTATIONS.UPDATE_VERSION](state: S, payload: string): void;
+  [ROOT_STORE.MUTATIONS.USER_LISTS](state: S, payload: IUserData[]): void;
 };
 
 /**
@@ -51,15 +46,15 @@ type AugmentedActionContextRoot = {
   };
 
 export interface RootActionsTypes {
-  [RootATypes.UPDATE_VERSION](
+  [ROOT_STORE.ACTIONS.UPDATE_VERSION](
     { commit }: AugmentedActionContextRoot,
     payload: string
   ): void;
-  [RootATypes.COUNTER_CHECK](
+  [ROOT_STORE.ACTIONS.COUNTER_CHECK](
     { dispatch }: AugmentedActionContextRoot,
     payload: boolean
   ): void;
-  [RootATypes.USER_LISTS](
+  [ROOT_STORE.ACTIONS.USER_LISTS](
     { dispatch }: AugmentedActionContextRoot,
     payload: IUserData[]
   ): void;
@@ -72,13 +67,13 @@ export interface Counter1StateTypes {
 }
 
 export interface Counter1GettersTypes {
-  doubledCounter1(state: Counter1StateTypes): number;
-  counterValue1(state: Counter1StateTypes): number;
+  [COUNTER1_STORE.GETTERS.DOUBLED_COUNTER1](state: Counter1StateTypes): number;
+  [COUNTER1_STORE.GETTERS.COUNTER_VALUE1](state: Counter1StateTypes): number;
 }
 
 export type Counter1MutationsTypes<S = Counter1StateTypes> = {
-  [CounterM1Types.SET_COUNTER1](state: S, payload: number): void;
-  [CounterM1Types.RESET_COUNTER1](state: S): void;
+  [COUNTER1_STORE.MUTATIONS.SET_COUNTER1](state: S, payload: number): void;
+  [COUNTER1_STORE.MUTATIONS.RESET_COUNTER1](state: S): void;
 };
 
 /**
@@ -93,11 +88,11 @@ type AugmentedActionContextCounter1 = {
 } & Omit<ActionContext<Counter1StateTypes, IRootState>, "commit">;
 
 export interface CounterActionsTypes1 {
-  [CounterA1Types.GET_COUNTER1](
+  [COUNTER1_STORE.ACTIONS.GET_COUNTER1](
     { commit }: AugmentedActionContextCounter1,
     payload: number
   ): Promise<number>;
-  [CounterA1Types.CALL_COUNTER1]({
+  [COUNTER1_STORE.ACTIONS.CALL_COUNTER1]({
     commit
   }: AugmentedActionContextCounter1): void;
 }
@@ -109,15 +104,18 @@ export interface CounterStateTypes {
 }
 
 export interface CounterGettersTypes {
-  doubledCounter(state: CounterStateTypes): number;
-  counterValue(state: CounterStateTypes): number;
-  getRootDispatch(state: CounterStateTypes): boolean;
+  [COUNTER_STORE.GETTERS.DOUBLED_COUNTER](state: CounterStateTypes): number;
+  [COUNTER_STORE.GETTERS.COUNTER_VALUE](state: CounterStateTypes): number;
+  [COUNTER_STORE.GETTERS.GET_ROOT_DISPATCH](state: CounterStateTypes): boolean;
 }
 
 export type CounterMutationsTypes<S = CounterStateTypes> = {
-  [CounterMTypes.SET_COUNTER](state: S, payload: number): void;
-  [CounterMTypes.RESET_COUNTER](state: S): void;
-  [CounterMTypes.SET_ROOT_DISPATCH](state: S, payload?: boolean): void;
+  [COUNTER_STORE.MUTATIONS.SET_COUNTER](state: S, payload: number): void;
+  [COUNTER_STORE.MUTATIONS.RESET_COUNTER](state: S): void;
+  [COUNTER_STORE.MUTATIONS.SET_ROOT_DISPATCH](
+    state: S,
+    payload?: boolean
+  ): void;
 };
 
 export type AugmentedActionContext = {
@@ -128,15 +126,15 @@ export type AugmentedActionContext = {
 } & Omit<ActionContext<CounterStateTypes, IRootState>, "commit">;
 
 export interface CounterActionsTypes {
-  [CounterATypes.GET_COUNTER](
+  [COUNTER_STORE.ACTIONS.GET_COUNTER](
     { commit }: AugmentedActionContext,
     payload: number
   ): void;
-  [CounterATypes.SET_ROOT_DISPATCH](
+  [COUNTER_STORE.ACTIONS.SET_ROOT_DISPATCH](
     { commit }: AugmentedActionContext,
     payload: boolean
   ): void;
-  [CounterATypes.CALL_COUNTER](
+  [COUNTER_STORE.ACTIONS.CALL_COUNTER](
     { commit }: AugmentedActionContext,
     payload: boolean
   ): void;

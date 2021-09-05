@@ -12,5 +12,5 @@ export const actions: ActionTree<IRootState, IRootState> & RootActionsTypes = {
   },
   [ROOT_STORE.ACTIONS.USER_LISTS](context, payload: IUserData[]) {
     context.commit(ROOT_STORE.MUTATIONS.USER_LISTS, payload);
-  },
+  }
 };

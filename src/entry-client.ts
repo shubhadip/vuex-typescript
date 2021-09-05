@@ -1,4 +1,4 @@
-import createApp from './main'
+import createApp from "./main";
 declare let window: any;
 
 const { app, router, store } = createApp();
@@ -11,6 +11,5 @@ const { app, router, store } = createApp();
     s.replaceState(storeInitialState);
   }
 
-  a.mount('#app', true);
+  a.mount("#app", true);
 })(router, app, store);
-

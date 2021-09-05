@@ -1,18 +1,16 @@
 import { ActionContext, DispatchOptions } from "vuex";
-import { MutationTypes as CounterM1Types } from "./modules/counter1/mutation-types";
-import { ActionTypes as CounterA1Types } from "./modules/counter1/action-types";
 import { COUNTER1_STORE, COUNTER_STORE, ROOT_STORE } from "./constants";
 
 export interface IUserData {
-  id: number
-  userId: number
-  title: string
-  body: string
+  id: number;
+  userId: number;
+  title: string;
+  body: string;
 }
 export interface IRootState {
   root: boolean;
   version: string;
-  userlists: any[]
+  userlists: any[];
 }
 
 export interface IMergedState extends IRootState {
@@ -114,7 +112,10 @@ export interface CounterGettersTypes {
 export type CounterMutationsTypes<S = CounterStateTypes> = {
   [COUNTER_STORE.MUTATIONS.SET_COUNTER](state: S, payload: number): void;
   [COUNTER_STORE.MUTATIONS.RESET_COUNTER](state: S): void;
-  [COUNTER_STORE.MUTATIONS.SET_ROOT_DISPATCH](state: S, payload?: boolean): void;
+  [COUNTER_STORE.MUTATIONS.SET_ROOT_DISPATCH](
+    state: S,
+    payload?: boolean
+  ): void;
 };
 
 export type AugmentedActionContext = {

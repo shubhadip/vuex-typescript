@@ -41,20 +41,29 @@ export default defineComponent({
   name: "CompositionAPIComponent",
   setup() {
     const store = useStore();
-    const counter = computed(() => store.getters[COUNTER_STORE.GETTERS.COUNTER_VALUE]);
+    const counter = computed(
+      () => store.getters[COUNTER_STORE.GETTERS.COUNTER_VALUE]
+    );
     const counterTemp = computed(
       () =>
         ((store.state.counterModule as unknown) as CounterStateTypes).counter
     );
-    const doubledCounter = computed(() => store.getters[COUNTER_STORE.GETTERS.DOUBLED_COUNTER]);
-    const isRootDispatchSet = computed(() => store.getters[COUNTER_STORE.GETTERS.GET_ROOT_DISPATCH]);
+    const doubledCounter = computed(
+      () => store.getters[COUNTER_STORE.GETTERS.DOUBLED_COUNTER]
+    );
+    const isRootDispatchSet = computed(
+      () => store.getters[COUNTER_STORE.GETTERS.GET_ROOT_DISPATCH]
+    );
 
     function resetCounter() {
       store.commit(COUNTER_STORE.MUTATIONS.RESET_COUNTER);
     }
 
     function setRootDispatch() {
-      store.dispatch(ROOT_STORE.ACTIONS.COUNTER_CHECK, !isRootDispatchSet.value);
+      store.dispatch(
+        ROOT_STORE.ACTIONS.COUNTER_CHECK,
+        !isRootDispatchSet.value
+      );
     }
     async function getCounter() {
       await store.dispatch(COUNTER_STORE.ACTIONS.GET_COUNTER, 100);

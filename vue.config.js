@@ -1,20 +1,18 @@
 const ManifestPlugin = require("webpack-manifest-plugin");
 const nodeExternals = require("webpack-node-externals");
-const webpack = require('webpack');
-const path = require('path');
+const webpack = require("webpack");
+const path = require("path");
 
 exports.chainWebpack = webpackConfig => {
-  
   if (!process.env.VUE_APP_SSR) {
     webpackConfig.resolve.alias.set(
-      'vue3-component-library/components',
-      path.resolve(__dirname, 'node_modules/vue3-component-library/dist/esm')
+      "vue3-component-library/components",
+      path.resolve(__dirname, "node_modules/vue3-component-library/dist/esm")
     );
-    
-  }else{
+  } else {
     webpackConfig.resolve.alias.set(
-      'vue3-component-library/components',
-      path.resolve(__dirname, 'node_modules/vue3-component-library/dist/cjs')
+      "vue3-component-library/components",
+      path.resolve(__dirname, "node_modules/vue3-component-library/dist/cjs")
     );
   }
   if (!process.env.VUE_APP_SSR) {
@@ -32,7 +30,6 @@ exports.chainWebpack = webpackConfig => {
     .clear()
     .add("./src/entry-server.ts");
 
-
   webpackConfig.target("node");
   webpackConfig.output.libraryTarget("commonjs2");
 
@@ -40,9 +37,11 @@ exports.chainWebpack = webpackConfig => {
     .plugin("manifest")
     .use(new ManifestPlugin({ fileName: "ssr-manifest.json" }));
 
-  webpackConfig.externals(nodeExternals({ allowlist: [/\.(css|vue)$/, 
-    'vue3-component-library/components/testworld'] 
-  }));
+  webpackConfig.externals(
+    nodeExternals({
+      allowlist: [/\.(css|vue)$/, "vue3-component-library/components/testworld"]
+    })
+  );
 
   webpackConfig.optimization.splitChunks(false).minimize(false);
 
@@ -51,9 +50,9 @@ exports.chainWebpack = webpackConfig => {
   webpackConfig.plugins.delete("prefetch");
   webpackConfig.plugins.delete("progress");
   webpackConfig.plugins.delete("friendly-errors");
-  webpackConfig.plugin('limit').use(
+  webpackConfig.plugin("limit").use(
     new webpack.optimize.LimitChunkCountPlugin({
       maxChunks: 1
     })
-  )
+  );
 };

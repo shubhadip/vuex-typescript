@@ -4,7 +4,10 @@ import { COUNTER_STORE } from "@/store/constants";
 
 export const mutations: MutationTree<CounterStateTypes> &
   CounterMutationsTypes = {
-  [COUNTER_STORE.MUTATIONS.SET_COUNTER](state: CounterStateTypes, payload: number) {
+  [COUNTER_STORE.MUTATIONS.SET_COUNTER](
+    state: CounterStateTypes,
+    payload: number
+  ) {
     state.counter = payload;
   },
   [COUNTER_STORE.MUTATIONS.RESET_COUNTER](state: CounterStateTypes) {

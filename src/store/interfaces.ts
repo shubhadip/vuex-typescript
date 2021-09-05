@@ -7,15 +7,15 @@ import { MutationTypes as RootMTypes } from "./modules/root/mutation-types";
 import { ActionTypes as RootATypes } from "./modules/root/action-types";
 
 export interface IUserData {
-  id: number
-  userId: number
-  title: string
-  body: string
+  id: number;
+  userId: number;
+  title: string;
+  body: string;
 }
 export interface IRootState {
   root: boolean;
   version: string;
-  userlists: any[]
+  userlists: any[];
 }
 
 export interface IMergedState extends IRootState {

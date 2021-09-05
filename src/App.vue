@@ -1,11 +1,22 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link> |
-    <router-link to="/compositionapi"> Composition Api </router-link>
-  </div>
+  <app-header />
   <router-view />
 </template>
+
+<script lang="ts">
+import { defineComponent } from "vue";
+import Header from "@/components/Header.vue";
+
+export default defineComponent({
+  name: "App",
+  components: {
+    "app-header": Header
+  },
+  setup() {
+    return {};
+  }
+});
+</script>
 
 <style lang="scss">
 #app {

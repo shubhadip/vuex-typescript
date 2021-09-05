@@ -1,0 +1,794 @@
+/* Color system */
+$white: #ffffff;
+
+/* Black color shades */
+$black: #000000;
+$black-1: #333333;
+$black-2: #222222;
+
+/* Brand colors */
+$blue: #00b9f5;
+$dark-blue: #07448e;
+
+/* Blue color shades */
+$blue-1: #4790fb;
+$blue-2: #5defff;
+$blue-3: #def6ff;
+
+/* Red color shades */
+$red: #fd5154;
+$red-1:  #ffefef;
+
+/* Mix colors */
+$pink: #f352a4;
+$orange: #f27447;
+$purple: #6456f1;
+
+/* Yellow color shades */
+$yellow: #ff9d00;
+$yellow-1: #ecaf15;
+$yellow-2: #ffe490;
+$yellow-3: #fff6e5;
+
+/* Green color shades */
+$green: #21c17a;
+$green-1: #20c1bc;
+$green-2: #e9f9f2;
+
+/* grey color shades */
+$grey: #747d84;
+$grey-1: #7f8386;
+$grey-2: #e8edf3;
+$grey-3: #f5f9fe;
+
+/* Quickly modify global styling by enabling or disabling optional features. */
+
+/* Note: 1rem = 16px */
+
+/* stylelint-disable -- custom resets involve rules that are not in the scope of the linter rules */
+
+/* Note: calc() function used here is post-css calc plugin, which gives computed value directly */
+/* Applies important to utility classes defined */
+/* leave it blank if not required, do not remove! i.e. $important:; */
+$important: !important;
+
+/* Spacing */
+$spacer: 1rem;
+/* spacer mapped options list below */
+
+/* Body */
+/* Settings for the `<body>` element. */
+
+$body-bg: $white;
+$body-color: $black;
+
+/* Links */
+/* Style anchor elements. */
+
+$link-color: $blue;
+$link-decoration: none;
+$link-hover-color: color($link-color shade(15%));
+$link-hover-decoration: underline;
+
+/*
+Paragraphs
+Style p element.
+*/
+
+$paragraph-margin-bottom: 0rem;
+
+/*
+Fonts
+Font, line-height, and color for body text, headings, and more.
+*/
+$font-family-sans-serif: "SF Pro Text", Roboto, arial, sans-serif;
+$font-family-serif: Georgia, Cambria, "Times New Roman", Times, serif;
+$font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+$font-family-base: $font-family-sans-serif;
+
+/* Assumes the browser default, typically `16px` */
+$font-size-base: 1rem;
+$font-size-lg: 1.25rem;
+$font-size-sm: 0.875rem;
+$font-size-xs: 0.75rem;
+
+/* Font-weight */
+$font-thin: 100;
+$font-extralight: 200;
+$font-light: 300;
+$font-normal: 400;
+$font-medium: 500;
+$font-semibold: 600;
+$font-bold: 700;
+$font-extrabold: 800;
+$font-black: 900;
+
+$font-weight-base: $font-normal;
+/* Relative line height variables */
+$line-height-none: 1;
+$line-height-tighter: 1.19;
+$line-height-tight: 1.285;
+$line-height-snug: 1.385;
+$line-height-normal: 1.4285;
+$line-height-base: 1.5;
+$line-height-relax: 1.585;
+$line-height-relaxed: 1.685;
+$line-height-loose: 1.8;
+
+$dt-font-weight: $font-bold;
+$table-caption-color: $grey-1;
+$table-cell-padding: 0.75rem;
+$label-margin-bottom: 0;
+
+/* Screen media Breakpoints */
+$breakpoint-xs: 0;
+$breakpoint-xs-max: 575px;
+
+$breakpoint-sm: 576px;
+$breakpoint-sm-max: 767px;
+
+$breakpoint-md: 768px;
+$breakpoint-md-max: 991px;
+
+$breakpoint-lg: 992px;
+$breakpoint-lg-max: 1199px;
+
+$breakpoint-xl: 1200px;
+
+/* form components settings */
+$input-btn-focus-color: color($blue a(25%));
+$input-btn-focus-width: 0;
+$input-btn-focus-box-shadow: none;
+
+/* Buttons */
+$btn-font-size: $font-size-sm;
+$btn-font-weight: $font-bold;
+$btn-font-weight-medium: $font-medium;
+
+$btn-padding-y: 0.75rem;
+$btn-padding-x: 0.75rem;
+$btn-line-height: $line-height-relax;
+
+$btn-padding-y-sm: 0.5rem;
+$btn-padding-x-sm: 0.5rem;
+$btn-font-size-sm: $font-size-sm;
+$btn-line-height-sm: $line-height-relax;
+
+$btn-padding-y-xs: 0.375rem;
+$btn-padding-x-xs: 0.5rem;
+$btn-font-size-xs: $font-size-xs;
+$btn-line-height-xs: $line-height-base;
+
+$btn-padding-y-lg: 0.782rem;
+$btn-padding-x-lg: 1rem;
+$btn-font-size-lg: $font-size-base;
+$btn-line-height-lg: $line-height-relax;
+
+$btn-border-width: 1px;
+
+$btn-box-shadow: inset 0 1px 0 color($white a(0.15%)), 0 1px 1px color($black a(0.75%));
+$btn-focus-width: $input-btn-focus-width;
+$btn-focus-box-shadow: $input-btn-focus-box-shadow;
+$btn-disabled-opacity: 0.4;
+$btn-active-box-shadow: inset 0 3px 5px color($black a(1.25%));
+
+$btn-link-disabled-color: color($link-color a(40%));
+$btn-disabled-color: $blue-3;
+$btn-loading-color: $blue-3;
+
+$btn-block-spacing-y: 0.5rem;
+
+/* Allows for customizing button radius independently from global border radius */
+$btn-border-radius: 6px;
+$btn-border-radius-lg: $btn-border-radius;
+$btn-border-radius-sm: $btn-border-radius;
+$btn-border-radius-xs: $btn-border-radius;
+
+$btn-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
+  box-shadow 0.15s ease-in-out;
+
+/* Radio & checkboxes */
+$checkbox-radio-size: rem(18px);
+$checkbox-radio-size-sm: rem(14px);
+$checkbox-radio-gutter: rem(12px);
+$checkbox-radio-border-color: #b8c2cb;
+$checkbox-radio-focus-shadow: 0 0 0 1px $white, $input-btn-focus-box-shadow;
+$checkbox-radio-transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
+  box-shadow 0.15s ease-in-out, transform 0.15s ease-in-out;
+$checkbox-radio-disabled-color: color($checkbox-radio-border-color lightness(85%));
+$checkbox-indicator-bg-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 18 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect fill='none'/%3E%3Cpath d='M12.7215 5.65963C13.0476 5.32189 13.5857 5.31242 13.9234 5.63847C14.2612 5.96452 14.2707 6.50262 13.9446 6.84036L7.66952 13.3404C7.32987 13.6922 6.76413 13.6856 6.43281 13.3259L4.04123 10.7296C3.72317 10.3843 3.74524 9.84657 4.09052 9.52852C4.4358 9.21046 4.97354 9.23253 5.29159 9.57781L7.0725 11.5112L12.7215 5.65963Z' fill='%23fff'/%3E%3C/svg%3E");
+
+/* Form elements: Input | Select | Textarea */
+/* These parameters could be used to stylize plain <input/> elements as well */
+$input-spacing-x: 0.75rem; /* 12px */
+$input-border-radius: 4px;
+$input-border-color: $grey-2;
+$input-bg: $white;
+$input-color: $black;
+$input-placeholder-color: $grey-1;
+$input-font-weight: $font-semibold;
+$input-disabled-bg: $grey-3;
+$input-font-size: $font-size-base;
+$input-base-height: 1.5em; /* 1.1876em */
+/*
+$input-font-size:  0.875rem;
+$input-base-height:  1.358em;
+*/
+$input-line-height: $input-base-height;
+$input-transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+$input-focus-box-shadow: $input-btn-focus-box-shadow;
+$input-focus-border-color: $blue;
+$input-hover-border-color: $grey-1;
+
+/* Modals */
+$modal-background-color: $white;
+$modal-content-max-width: 768px;
+$modal-overlay-color: color($black-2 a(70%));
+$modal-border-radius: 12px;
+$modal-z-index: 10;
+
+/* Tooltips */
+$tooltip-color: $white;
+$tooltip-background-color: $black;
+$tooltip-padding: 10px; /* padding shorthand syntax i.e. it can be "5px 10px", "5px 10px 15px 8px", etc. */
+$tooltip-arrow-size: 5px;
+$tooltip-offset: calc(
+  $tooltip-arrow-size + 4px
+); /* Extra pixels added to introduce space between arrow point and content */
+$tooltip-z-index: 10;
+
+/* Dropdown */
+$dropdown-bg-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%237f8386' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-chevron-down'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+
+/* Slider */
+$vue-slider-rail-bg: $grey-2;
+$vue-slider-process-bg-1: #ffdb7c;
+$vue-slider-process-bg-2: #04cf46;
+$vue-slider-step-bg: $dark-blue;
+
+/* Datepicker */
+$datepicker-disabled: $grey-2;
+$cell-datepicker-hg-disabled: $grey;
+$datepicker-highlighted: $blue;
+$cell-grey: $grey;
+$calendar-btn-disabled: $grey;
+$datepicker-disabled-hover: $grey-2;
+
+/* Misc icon as background image */
+$icon-circle-close: url("data:image/svg+xml;charset=utf8,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg id='ic_close'%3E%3Ccircle id='Oval' opacity='0.3' cx='12' cy='12' r='12' fill='black'/%3E%3Cpath id='Combined Shape' fill-rule='evenodd' clip-rule='evenodd' d='M15.0137 7.58241C14.9692 7.61661 14.9223 7.66352 14.8284 7.75735L12 10.5858L9.17157 7.75735C9.07775 7.66352 9.03083 7.61661 8.98626 7.58241C8.67848 7.34624 8.25045 7.34624 7.94267 7.58241C7.8981 7.61661 7.85119 7.66352 7.75736 7.75735C7.66353 7.85118 7.61662 7.89809 7.58242 7.94266C7.34625 8.25044 7.34625 8.67847 7.58242 8.98625C7.61662 9.03082 7.66353 9.07774 7.75736 9.17156L10.5858 12L7.75736 14.8284C7.66353 14.9222 7.61662 14.9692 7.58242 15.0137C7.34625 15.3215 7.34625 15.7495 7.58242 16.0573C7.61662 16.1019 7.66353 16.1488 7.75736 16.2426C7.85119 16.3365 7.8981 16.3834 7.94267 16.4176C8.25045 16.6537 8.67848 16.6537 8.98626 16.4176C9.03083 16.3834 9.07775 16.3365 9.17157 16.2426L12 13.4142L14.8284 16.2426C14.9223 16.3365 14.9692 16.3834 15.0137 16.4176C15.3215 16.6537 15.7495 16.6537 16.0573 16.4176C16.1019 16.3834 16.1488 16.3365 16.2426 16.2426C16.3365 16.1488 16.3834 16.1019 16.4176 16.0573C16.6537 15.7495 16.6537 15.3215 16.4176 15.0137C16.3834 14.9692 16.3365 14.9222 16.2426 14.8284L13.4142 12L16.2426 9.17156C16.3365 9.07774 16.3834 9.03082 16.4176 8.98625C16.6537 8.67847 16.6537 8.25044 16.4176 7.94266C16.3834 7.89809 16.3365 7.85118 16.2426 7.75735C16.1488 7.66352 16.1019 7.61661 16.0573 7.58241C15.7495 7.34624 15.3215 7.34624 15.0137 7.58241Z' fill='white'/%3E%3C/g%3E%3C/svg%3E");
+$icon-search-grey: url("data:image/svg+xml;charset=utf8,%3Csvg width='18' height='18' viewBox='0 0 18 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8.16856 3.60001C10.6869 3.60001 12.7356 5.69429 12.7356 8.26861C12.7356 10.8429 10.6869 12.9372 8.16856 12.9372C5.65026 12.9372 3.60156 10.8429 3.60156 8.26861C3.60156 5.69429 5.65026 3.60001 8.16856 3.60001Z' stroke='%237F8386' stroke-width='2'/%3E%3Cpath d='M11.1914 11.8084L14.3315 14.9237' stroke='%237F8386' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+$icon-tick-blue: url("data:image/svg+xml;charset=utf8,%3Csvg width='16' height='11' viewBox='0 0 16 11' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M15 1L5.86673 10L1 5.53603' stroke='%2300B9F5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+
+/* when modal/fixed dialogs active states in order to avoid backdrop element scrolling */
+@define-mixin scroll-freeze {
+  overflow: hidden;
+  touch-action: none;
+  -webkit-overflow-scrolling: none;
+
+  /* Other browsers */
+  overscroll-behavior: none;
+}
+
+@define-mixin clearfix {
+  &:after {
+    display: block;
+    clear: both;
+    content: '';
+  }
+}
+
+/* Text reset */
+@define-mixin reset-text {
+  font-family: $font-family-base;
+
+  /* deliberately do NOT reset font-size or word-wrap. */
+  font-style: normal;
+  font-weight: $font-normal;
+  line-height: $line-height-base;
+  text-align: left;
+  text-decoration: none;
+  text-shadow: none;
+  text-transform: none;
+  letter-spacing: normal;
+  word-break: normal;
+  word-spacing: normal;
+  white-space: normal;
+  line-break: auto;
+}
+
+/*
+  Text truncate
+  Requires inline-block or block for proper styling
+*/
+
+@define-mixin text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@define-mixin plain {
+  & {
+    @mixin-content;
+  }
+}
+
+@define-mixin hover {
+  &:hover {
+    @mixin-content;
+  }
+}
+
+@define-mixin focus {
+  &:focus {
+    @mixin-content;
+  }
+}
+
+@define-mixin hover-focus {
+  &:hover,
+  &:focus {
+    @mixin-content;
+  }
+}
+
+/* Useful for <a> plain styling */
+@define-mixin plain-hover-focus {
+  &,
+  &:hover,
+  &:focus {
+    @mixin-content;
+  }
+}
+
+@define-mixin hover-focus-active {
+  &:hover,
+  &:focus,
+  &:active {
+    @mixin-content;
+  }
+}
+
+/*
+  These can be used to generate plain | hover | focus prefixed properties
+  to be used for generating utils.
+  "$use-each-mixin" name is going to be the feeder for this part.
+*/
+@define-mixin each-plain-hover-focus $use-each-mixin {
+  /* Keep space for plain key item */
+  @each $state, $mix in ( , hover\:, focus\:), (plain, hover, focus) {
+    &$(state) {
+      @mixin $(use-each-mixin) $mix {
+        @mixin-content;
+      }
+    }
+  }
+}
+
+@define-mixin each-plain-hover $use-each-mixin {
+  /* Keep space for plain key item */
+  @each $state, $mix in ( , hover\:), (plain, hover) {
+    &$(state) {
+      @mixin $(use-each-mixin) $mix {
+        @mixin-content;
+      }
+    }
+  }
+}
+
+@define-mixin each-plain-focus $use-each-mixin {
+  /* Keep space for plain key item */
+  @each $state, $mix in ( , focus\:), (plain, focus) {
+    &$(state) {
+      @mixin $(use-each-mixin) $mix {
+        @mixin-content;
+      }
+    }
+  }
+}
+
+@define-mixin each-plain $use-each-mixin {
+  & {
+    @mixin $(use-each-mixin) plain {
+      @mixin-content;
+    }
+  }
+}
+
+/* Image Mixins */
+
+/* Responsive image */
+
+/* Keep images from scaling beyond the width of their parents. */
+@define-mixin img-fluid {
+  /* Part 1: Set a maximum relative to the parent */
+
+  /*
+    Part 2: Override the height to auto, otherwise images will be stretched
+    when setting a width and height attribute on the img element.
+  */
+  max-width: 100%;
+  height: auto;
+}
+
+/*
+    Retina image
+    Short retina mixin for setting background-image and -size.
+*/
+@define-mixin img-retina $file-1x, $file-2x, $width-1x, $height-1x {
+  background-image: url($file-1x);
+
+  /*
+    Autoprefixer takes care of adding -webkit-min-device-pixel-ratio and -o-min-device-pixel-ratio,
+    but doesn't convert dppx=>dpi.
+    There's no such thing as unprefixed min-device-pixel-ratio since it's nonstandard.
+    Compatibility info: https://caniuse.com/#feat=css-media-resolution
+  */
+  @media only screen and (min-resolution: 192dpi),
+    only screen and (min-resolution: 2dppx) {
+    /* IE9-11 don't support dppx */
+
+    /* Standardized */
+    background-image: url($file-2x);
+    background-size: $width-1x $height-1x;
+  }
+}
+
+/*
+    Only display content to screen readers
+    See: https://a11yproject.com/posts/how-to-hide-content/
+    See: https://hugogiraudel.com/2016/10/13/css-hide-and-seek/
+*/
+
+@define-mixin sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/*
+    Use in conjunction with .sr-only to only display content when it's focused.
+
+    Useful for "Skip to main content" links; see https://www.w3.org/TR/2013/NOTE-WCAG20-TECHS-20130905/G1
+
+    Credit: HTML5 Boilerplate
+*/
+
+@define-mixin sr-only-focusable {
+  &:active,
+  &:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+}
+
+/*
+Button variants
+Default styles, as well as :hover, :focus, :active,
+and disabled options for all buttons
+*/
+%button-variant-disabled {
+  opacity: $btn-disabled-opacity;
+  box-shadow: none;
+
+  /* Remove CSS gradients if they're enabled */
+  background-image: none;
+}
+
+@define-mixin button-variant $background, $border, $color, $hover-background: color($background shade(2.5%)),
+  $hover-border: color($border shade(2.5%)), $active-background: color($background shade(5%)),
+  $active-border: color($border shade(5%)) {
+  color: $color;
+  background-color: $background;
+  border-color: $border;
+
+  @mixin hover-focus {
+    background-color: $hover-background;
+    border-color: $hover-border;
+  }
+
+  &:focus,
+  &.focus {
+    /* Avoid using mixin so we can pass custom focus shadow properly */
+  }
+
+  /* Disabled comes first so active can properly restyle */
+  &.disabled,
+  &:disabled {
+    @extend %button-variant-disabled;
+
+    /* color: color($color a(75%));
+    background-color: color($background a(75%));
+    border-color: color($border a(75%)); */
+
+    /* Remove CSS gradients if they're enabled */
+
+    /* background-image: none; */
+  }
+
+  &:not(:disabled):not(.disabled):not(.loading):active,
+  &:not(:disabled):not(.disabled):not(.loading).active {
+    background-color: $active-background;
+
+    /* Remove the gradient for the pressed/active state */
+    background-image: none;
+    border-color: $active-border;
+
+    &:focus {
+      /* Avoid using mixin so we can pass custom focus shadow properly */
+    }
+  }
+}
+
+@define-mixin button-outline-variant $color, $color-hover: color($color shade(7.5%)),
+  $active-background: color($color a(7.5%)), $active-border: color($color shade(7.5%)) {
+  color: $color;
+  border-color: $color;
+
+  @mixin hover {
+    color: $color-hover;
+    background-color: transparent;
+    border-color: $active-border;
+  }
+
+  &:focus,
+  &.focus {
+    box-shadow: 0 0 0 $btn-focus-width color($color a(25%));
+  }
+
+  &.disabled,
+  &:disabled {
+    @extend %button-variant-disabled;
+
+    /* opacity: $btn-disabled-opacity;
+    color: $color;
+    background-color: transparent;
+    box-shadow: none; */
+  }
+
+  &:not(:disabled):not(.disabled):not(.loading):active,
+  &:not(:disabled):not(.disabled):not(.loading).active {
+    color: $color-hover;
+    background-color: $active-background;
+    border-color: $active-border;
+
+    &:focus {
+      /* Avoid using mixin so we can pass custom focus shadow properly */
+      box-shadow: 0 0 0 $btn-focus-width color($color a(50%));
+    }
+  }
+}
+
+/* Button sizes */
+@define-mixin button-size $padding-y, $padding-x, $font-size, $line-height, $border-radius {
+  padding: $padding-y $padding-x;
+  font-size: $font-size;
+  line-height: $line-height;
+  border-radius: $border-radius;
+}
+
+/* Min width and above media util */
+@define-mixin media-breakpoint-up $width {
+  @media (min-width: $width) {
+    @mixin-content;
+  }
+}
+
+/* Below and Max width media util */
+@define-mixin media-breakpoint-down $width {
+  @media (max-width: $width) {
+    @mixin-content;
+  }
+}
+
+/* Between Min and Max width media util */
+@define-mixin media-breakpoint-between $min-width, $max-width {
+  @media (min-width: $min-width) and (max-width: $max-width) {
+    @mixin-content;
+  }
+}
+
+/* declared screen breakpoints specific */
+@define-mixin media-breakpoint-only-xs {
+  @mixin media-breakpoint-between $breakpoint-xs, $breakpoint-xs-max {
+    @mixin-content;
+  }
+}
+
+@define-mixin media-breakpoint-only-sm {
+  @mixin media-breakpoint-between $breakpoint-sm, $breakpoint-sm-max {
+    @mixin-content;
+  }
+}
+
+@define-mixin media-breakpoint-only-md {
+  @mixin media-breakpoint-between $breakpoint-md, $breakpoint-md-max {
+    @mixin-content;
+  }
+}
+
+@define-mixin media-breakpoint-only-lg {
+  @mixin media-breakpoint-between $breakpoint-lg, $breakpoint-lg-max {
+    @mixin-content;
+  }
+}
+
+/* For looping throught each utility media breakpoints up */
+
+@define-mixin each-media-breakpoint-up {
+  @each $name, $breakpoint in (sm, md, lg, xl), ($breakpoint-sm, $breakpoint-md, $breakpoint-lg, $breakpoint-xl) {
+    @mixin media-breakpoint-up $breakpoint {
+      .$(name)\: {
+        @mixin-content;
+      }
+    }
+  }
+}
+
+@define-mixin each-media-breakpoint-down {
+  @each $name, $breakpoint in (sm, md, lg, xl), ($breakpoint-sm, $breakpoint-md, $breakpoint-lg, $breakpoint-xl) {
+    @mixin media-breakpoint-down $breakpoint {
+      .$(name)\: {
+        @mixin-content;
+      }
+    }
+  }
+}
+
+@define-mixin cr-indicator $top-position: 0, $size: 100% {
+  &:before,
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: $top-position;
+    width: $size;
+    height: $size;
+    user-select: none;
+    transition: $checkbox-radio-transition;
+    @mixin-content;
+  }
+}
+
+@define-mixin cr-native-input-preset {
+  cursor: inherit;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+@define-mixin cr-native-input-parent $size {
+  flex-shrink: 0;
+  position: relative;
+  display: inline-block;
+  line-height: 1;
+  vertical-align: bottom;
+  height: $size;
+  width: $size;
+}
+
+/* Checkbox element Indicator */
+@define-mixin checkbox-indicator $top-position, $size {
+  @mixin cr-indicator $top-position, $size {
+    border-radius: 15%;
+  }
+
+  &:before {
+    /* border: 1.5px solid $checkbox-radio-border-color; */
+    color: $checkbox-radio-border-color;
+    box-shadow: 0 0 0 1.5px inset;
+    background-color: $white;
+  }
+
+  &:after {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100%;
+  }
+}
+
+@define-mixin checkbox-indicator-checked {
+  &:before {
+    background-color: $blue;
+    color: $blue;
+  }
+
+  &:after {
+    background-image: $checkbox-indicator-bg-image;
+  }
+}
+
+@define-mixin checkbox-indicator-disabled {
+  &:before {
+    color: $checkbox-radio-disabled-color;
+  }
+}
+
+@define-mixin checkbox-indicator-checked-disabled {
+  &:before {
+    background-color: $checkbox-radio-disabled-color;
+    color: $checkbox-radio-disabled-color;
+  }
+}
+
+/* Radio element indicator */
+@define-mixin radio-indicator $top-position, $size {
+  @mixin cr-indicator $top-position, $size {
+    border-radius: 100%;
+  }
+
+  &:before {
+    /* border: 1.5px solid $checkbox-radio-border-color; */
+    color: $checkbox-radio-border-color;
+    box-shadow: 0 0 0 1.5px inset;
+  }
+
+  &:after {
+    visibility: hidden;
+    transform-origin: center center;
+    transform: scale(0);
+    background-color: transparent;
+  }
+}
+
+@define-mixin radio-indicator-checked {
+  &:before {
+    color: $blue;
+  }
+
+  &:after {
+    visibility: visible;
+    background-color: $blue;
+    transform: scale(0.5);
+  }
+}
+
+@define-mixin radio-indicator-disabled {
+  &:before {
+    color: $checkbox-radio-disabled-color;
+  }
+
+  &:after {
+    background-color: $checkbox-radio-disabled-color;
+  }
+}
+
+@define-mixin cr-indicator-resize $size {
+  &:before,
+  &:after {
+    width: $size;
+    height: $size;
+  }
+}
+
+/* utility only checkbox | radio generator */
+@define-mixin utility-cr-indicator $size: $checkbox-radio-size {
+  display: inline-block;
+  position: relative;
+  width: $size;
+  height: $size;
+  @mixin-content;
+}
+
+@define-mixin utility-cr-indicator-resize $size {
+  width: $size;
+  height: $size;
+}
+
+
+
+
+

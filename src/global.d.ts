@@ -1,1 +1,1 @@
-declare module 'vue3-component-library/components/testworld'
+declare module "vue3-component-library/components/testworld";

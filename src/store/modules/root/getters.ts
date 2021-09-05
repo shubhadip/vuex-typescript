@@ -7,5 +7,5 @@ export const getters: GetterTree<IRootState, IRootState> & IRootGettersTypes = {
   },
   getUserList: (state: IRootState): IUserData[] => {
     return state.userlists;
-  },
+  }
 };

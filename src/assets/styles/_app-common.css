@@ -8,6 +8,8 @@
 
 body {
   position: relative;
+  padding: 0px;
+  margin: 0px;
 }
 
 .vdp-datepicker__calendar .disabled {
@@ -83,10 +85,3 @@ textarea {
 .is-android .app-dialog--fullscreen .app-dialog__content {
   padding-top: 56px;
 }
-
-/* For Desktop custom scroll for chrome */
-@media only screen and (min-width: 1024px) {
-  @mixin scrollbar *: not(.reset-scrollbar);
-}
-
-/* purgecss end ignore */

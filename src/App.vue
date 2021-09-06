@@ -1,24 +1,29 @@
 <template>
-  <app-header />
+  <desktop-header v-if="isDesktopDevice" />
   <router-view />
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
 import Header from "@/components/Header.vue";
+import { isDesktop } from "./shared/misc";
 
 export default defineComponent({
   name: "App",
   components: {
-    "app-header": Header
+    "desktop-header": Header
   },
   setup() {
-    return {};
+    const isDesktopDevice = isDesktop();
+
+    return {
+      isDesktopDevice
+    };
   }
 });
 </script>
 
-<style lang="scss">
+<style lang="postcss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

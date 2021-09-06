@@ -1,6 +1,6 @@
 /* purgecss start ignore */
-@import "/css/app-base.css";
+@import "./css/app-base.css";
 
 /* purgecss end ignore */
-@import "/css/app-utils.css";
+@import "./css/app-utils.css";
 @import "_app-common.css";

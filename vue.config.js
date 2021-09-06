@@ -3,6 +3,17 @@ const nodeExternals = require("webpack-node-externals");
 const webpack = require("webpack");
 const path = require("path");
 
+const addStyleResource = (rule) => {
+  rule
+    .use('style-resource')
+    .loader('style-resources-loader')
+    .options({
+      // keep single directory here
+      patterns: path.resolve(__dirname, './src/assets/styles/_app-partials.css'),
+    });
+};
+
+
 exports.chainWebpack = webpackConfig => {
   if (!process.env.VUE_APP_SSR) {
     webpackConfig.resolve.alias.set(
@@ -22,6 +33,10 @@ exports.chainWebpack = webpackConfig => {
       .entry("app")
       .clear()
       .add("./src/entry-client.ts");
+      
+    const types = ['vue-modules', 'vue', 'normal-modules', 'normal'];
+    types.forEach((type) => addStyleResource(webpackConfig.module.rule('postcss').oneOf(type)));
+
     return;
   }
 

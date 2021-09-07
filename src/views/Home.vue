@@ -3,6 +3,18 @@
     <section
       class="flex px-32 mx-32 p-56 flex-col items-start border-b border-grey-2"
     >
+      <p class="text-48 my-14 font-bold">Hi all, I'am Shubhadip</p>
+      <p class="text-48 mb-24 font-medium">I Work as FrontEnd Developer</p>
+      <p class="text-24 w-2/3 text-left">
+        Over 7+ Years of Experience and a passionate Full Stack Software
+        Developer 🚀 having an experience of building Web and Mobile
+        applications with JavaScript / Vuejs / Reactjs / RoR / React Native and
+        some other cool libraries and frameworks.
+      </p>
+    </section>
+    <section
+      class="flex px-32 mx-32 p-56 flex-col items-start border-b border-grey-2"
+    >
       <p class="text-48 text-24 text-black my-24">Proficiency</p>
       <div class="w-full">
         <div>
@@ -22,7 +34,7 @@
       </div>
     </section>
     <section
-      class="flex px-32 mx-32 pb-56 flex-col items-start border-b border-grey-2"
+      class="flex px-32 mx-32 p-56 flex-col items-start border-b border-grey-2"
     >
       <p class="text-48 text-24 text-black mt-18">Education</p>
       <div class="w-full">
@@ -52,7 +64,7 @@
         <div class="flex p-16 my-16 items-start w-4/5">
           <div
             class="flex items-start flex-col pl-16 ml-16 flex-1"
-            style="min-width: 770px"
+            style="max-width: 770px"
           >
             <p class="text-24 text-black font-bold mb-2">
               Maharashtra State Board
@@ -72,14 +84,32 @@
         </div>
       </div>
     </section>
-    <section>
-      <p>Education</p>
-      <div>
-        <div class="flex items-center ">
+    <section
+      class="flex px-32 mx-32 p-56 flex-col items-start border-b border-grey-2"
+    >
+      <p class="text-48 text-24 text-black mt-18">Experiences</p>
+      <div class="w-full flex">
+        <div class="flex-1 p-16 my-16 items-start border-b border-grey-2">
+          <div
+            class="h-96 bewakoof-bg-yellow text-white flex justify-center items-center rounded-tr-16  rounded-tl-16"
+          >
+            <p class="font-bold text-24 uppercase tracking-wide">Bewakoof</p>
+          </div>
+          <div class="bg-white text-black">
+            <p class="title text-24 font-bold">Software Developer</p>
+            <p class="experience text-24 font-medium">June 2014 - May 2018</p>
+            <p class="description text-24">Bewakoof</p>
+            <p class="sub-title text-18 text-grey-1">Bewakoof</p>
+            <p class="sub-title text-18 text-grey-1">Bewakoof</p>
+            <p class="sub-title text-18 text-grey-1">Bewakoof</p>
+          </div>
         </div>
-        <!-- <div class="flex items-center ">
-          <img class="object-cover h-96 w-196" :src="require('@/assets/images/mumbai-logo.png')" alt="Mumbai university">
-        </div> -->
+        <div class="flex-1 p-16 my-16 items-start border-b border-grey-2">
+          Coverfox
+        </div>
+        <div class="flex-1 p-16 my-16 items-start border-b border-grey-2">
+          Paytm
+        </div>
       </div>
     </section>
     <!-- <section>

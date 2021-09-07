@@ -17,7 +17,7 @@ $blue-3: #def6ff;
 
 /* Red color shades */
 $red: #fd5154;
-$red-1:  #ffefef;
+$red-1: #ffefef;
 
 /* Mix colors */
 $pink: #f352a4;
@@ -29,6 +29,7 @@ $yellow: #ff9d00;
 $yellow-1: #ecaf15;
 $yellow-2: #ffe490;
 $yellow-3: #fff6e5;
+$yellow-4: #fdd835;
 
 /* Green color shades */
 $green: #21c17a;
@@ -81,9 +82,10 @@ $paragraph-margin-bottom: 0rem;
 Fonts
 Font, line-height, and color for body text, headings, and more.
 */
-$font-family-sans-serif: "SF Pro Text", Roboto, arial, sans-serif;
+$font-family-sans-serif: Roboto, arial, sans-serif;
 $font-family-serif: Georgia, Cambria, "Times New Roman", Times, serif;
-$font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+$font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
+  "Liberation Mono", "Courier New", monospace;
 $font-family-base: $font-family-sans-serif;
 
 /* Assumes the browser default, typically `16px` */
@@ -166,7 +168,8 @@ $btn-line-height-lg: $line-height-relax;
 
 $btn-border-width: 1px;
 
-$btn-box-shadow: inset 0 1px 0 color($white a(0.15%)), 0 1px 1px color($black a(0.75%));
+$btn-box-shadow: inset 0 1px 0 color($white a(0.15%)),
+  0 1px 1px color($black a(0.75%));
 $btn-focus-width: $input-btn-focus-width;
 $btn-focus-box-shadow: $input-btn-focus-box-shadow;
 $btn-disabled-opacity: 0.4;
@@ -184,8 +187,8 @@ $btn-border-radius-lg: $btn-border-radius;
 $btn-border-radius-sm: $btn-border-radius;
 $btn-border-radius-xs: $btn-border-radius;
 
-$btn-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
-  box-shadow 0.15s ease-in-out;
+$btn-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+  border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 
 /* Radio & checkboxes */
 $checkbox-radio-size: rem(18px);
@@ -193,9 +196,12 @@ $checkbox-radio-size-sm: rem(14px);
 $checkbox-radio-gutter: rem(12px);
 $checkbox-radio-border-color: #b8c2cb;
 $checkbox-radio-focus-shadow: 0 0 0 1px $white, $input-btn-focus-box-shadow;
-$checkbox-radio-transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
-  box-shadow 0.15s ease-in-out, transform 0.15s ease-in-out;
-$checkbox-radio-disabled-color: color($checkbox-radio-border-color lightness(85%));
+$checkbox-radio-transition: background-color 0.15s ease-in-out,
+  border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out,
+  transform 0.15s ease-in-out;
+$checkbox-radio-disabled-color: color(
+  $checkbox-radio-border-color lightness(85%)
+);
 $checkbox-indicator-bg-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 18 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect fill='none'/%3E%3Cpath d='M12.7215 5.65963C13.0476 5.32189 13.5857 5.31242 13.9234 5.63847C14.2612 5.96452 14.2707 6.50262 13.9446 6.84036L7.66952 13.3404C7.32987 13.6922 6.76413 13.6856 6.43281 13.3259L4.04123 10.7296C3.72317 10.3843 3.74524 9.84657 4.09052 9.52852C4.4358 9.21046 4.97354 9.23253 5.29159 9.57781L7.0725 11.5112L12.7215 5.65963Z' fill='%23fff'/%3E%3C/svg%3E");
 
 /* Form elements: Input | Select | Textarea */
@@ -273,7 +279,7 @@ $icon-tick-blue: url("data:image/svg+xml;charset=utf8,%3Csvg width='16' height='
   &:after {
     display: block;
     clear: both;
-    content: '';
+    content: "";
   }
 }
 
@@ -356,7 +362,7 @@ $icon-tick-blue: url("data:image/svg+xml;charset=utf8,%3Csvg width='16' height='
 */
 @define-mixin each-plain-hover-focus $use-each-mixin {
   /* Keep space for plain key item */
-  @each $state, $mix in ( , hover\:, focus\:), (plain, hover, focus) {
+  @each $state, $mix in (, hover\: , focus\: ), (plain, hover, focus) {
     &$(state) {
       @mixin $(use-each-mixin) $mix {
         @mixin-content;
@@ -367,7 +373,7 @@ $icon-tick-blue: url("data:image/svg+xml;charset=utf8,%3Csvg width='16' height='
 
 @define-mixin each-plain-hover $use-each-mixin {
   /* Keep space for plain key item */
-  @each $state, $mix in ( , hover\:), (plain, hover) {
+  @each $state, $mix in (, hover\: ), (plain, hover) {
     &$(state) {
       @mixin $(use-each-mixin) $mix {
         @mixin-content;
@@ -378,7 +384,7 @@ $icon-tick-blue: url("data:image/svg+xml;charset=utf8,%3Csvg width='16' height='
 
 @define-mixin each-plain-focus $use-each-mixin {
   /* Keep space for plain key item */
-  @each $state, $mix in ( , focus\:), (plain, focus) {
+  @each $state, $mix in (, focus\: ), (plain, focus) {
     &$(state) {
       @mixin $(use-each-mixin) $mix {
         @mixin-content;
@@ -484,8 +490,10 @@ and disabled options for all buttons
   background-image: none;
 }
 
-@define-mixin button-variant $background, $border, $color, $hover-background: color($background shade(2.5%)),
-  $hover-border: color($border shade(2.5%)), $active-background: color($background shade(5%)),
+@define-mixin button-variant $background, $border, $color,
+  $hover-background: color($background shade(2.5%)),
+  $hover-border: color($border shade(2.5%)),
+  $active-background: color($background shade(5%)),
   $active-border: color($border shade(5%)) {
   color: $color;
   background-color: $background;
@@ -529,8 +537,10 @@ and disabled options for all buttons
   }
 }
 
-@define-mixin button-outline-variant $color, $color-hover: color($color shade(7.5%)),
-  $active-background: color($color a(7.5%)), $active-border: color($color shade(7.5%)) {
+@define-mixin button-outline-variant $color,
+  $color-hover: color($color shade(7.5%)),
+  $active-background: color($color a(7.5%)),
+  $active-border: color($color shade(7.5%)) {
   color: $color;
   border-color: $color;
 
@@ -569,7 +579,8 @@ and disabled options for all buttons
 }
 
 /* Button sizes */
-@define-mixin button-size $padding-y, $padding-x, $font-size, $line-height, $border-radius {
+@define-mixin button-size $padding-y, $padding-x, $font-size, $line-height,
+  $border-radius {
   padding: $padding-y $padding-x;
   font-size: $font-size;
   line-height: $line-height;
@@ -625,7 +636,9 @@ and disabled options for all buttons
 /* For looping throught each utility media breakpoints up */
 
 @define-mixin each-media-breakpoint-up {
-  @each $name, $breakpoint in (sm, md, lg, xl), ($breakpoint-sm, $breakpoint-md, $breakpoint-lg, $breakpoint-xl) {
+  @each $name, $breakpoint in (sm, md, lg, xl),
+    ($breakpoint-sm, $breakpoint-md, $breakpoint-lg, $breakpoint-xl)
+  {
     @mixin media-breakpoint-up $breakpoint {
       .$(name)\: {
         @mixin-content;
@@ -635,7 +648,9 @@ and disabled options for all buttons
 }
 
 @define-mixin each-media-breakpoint-down {
-  @each $name, $breakpoint in (sm, md, lg, xl), ($breakpoint-sm, $breakpoint-md, $breakpoint-lg, $breakpoint-xl) {
+  @each $name, $breakpoint in (sm, md, lg, xl),
+    ($breakpoint-sm, $breakpoint-md, $breakpoint-lg, $breakpoint-xl)
+  {
     @mixin media-breakpoint-down $breakpoint {
       .$(name)\: {
         @mixin-content;
@@ -787,8 +802,3 @@ and disabled options for all buttons
   width: $size;
   height: $size;
 }
-
-
-
-
-

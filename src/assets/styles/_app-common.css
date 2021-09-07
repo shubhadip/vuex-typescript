@@ -85,3 +85,6 @@ textarea {
 .is-android .app-dialog--fullscreen .app-dialog__content {
   padding-top: 56px;
 }
+.bewakoof-bg-yellow {
+  background: $yellow-4;
+}

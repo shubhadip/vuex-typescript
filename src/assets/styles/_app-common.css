@@ -88,3 +88,23 @@ textarea {
 .bewakoof-bg-yellow {
   background: $yellow-4;
 }
+
+.coverfox-bg-orange {
+  background: #fc5846;
+}
+
+.paytm-bg-blue {
+  background: #00baf2;
+}
+
+.HTML {
+  color: #e34c26;
+}
+
+.JavaScript {
+  color: #f1e05a;
+}
+
+.TypeScript {
+  color: #2b7489;
+}

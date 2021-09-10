@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 4455;
 const manifest = require("../dist/server/ssr-manifest.json");
 const appPath = path.join(__dirname, "../dist", "server", manifest["app.js"]);
 const App = require(appPath).default;
-
+const MobileDetect = require('mobile-detect')
 const server = express();
 
 server.use(
@@ -33,9 +33,12 @@ server.get("*", async (req, res) => {
 
   await router.push(req.url);
   await router.isReady();
-
+  
+  const md = new MobileDetect(req.headers['user-agent']);
+  store.dispatch('DEVICE_TYPE', md.mobile() ? 'mWeb': 'web')
+  
   let appContent = await renderToString(app);
-
+  console.log(store.state);
   const renderState = `
     <script>
       window.INITIAL_DATA = ${serialize(store.state)}

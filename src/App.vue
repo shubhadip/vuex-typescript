@@ -15,7 +15,7 @@ export default defineComponent({
   },
   setup() {
     const isDesktopDevice = isDesktop();
-
+    console.log('isDesktopDevice',isDesktopDevice);
     return {
       isDesktopDevice
     };

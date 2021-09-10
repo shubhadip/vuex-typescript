@@ -1,3 +1,4 @@
+import { AppType } from "@/shared/interfaces";
 import { ActionContext, DispatchOptions } from "vuex";
 import { COUNTER1_STORE, COUNTER_STORE, ROOT_STORE } from "./constants";
 
@@ -11,6 +12,7 @@ export interface IRootState {
   root: boolean;
   version: string;
   userlists: any[];
+  deviceType: AppType;
 }
 
 export interface IMergedState extends IRootState {
@@ -21,11 +23,13 @@ export interface IMergedState extends IRootState {
 export interface IRootGettersTypes {
   [ROOT_STORE.GETTERS.UPDATE_VERSION](state: IRootState): string;
   [ROOT_STORE.GETTERS.USER_LISTS](state: IRootState): IUserData[];
+  [ROOT_STORE.GETTERS.DEVICE_TYPE](state: IRootState): AppType;
 }
 
 export type RootMutationsTypes<S = IRootState> = {
   [ROOT_STORE.MUTATIONS.UPDATE_VERSION](state: S, payload: string): void;
   [ROOT_STORE.MUTATIONS.USER_LISTS](state: S, payload: IUserData[]): void;
+  [ROOT_STORE.MUTATIONS.DEVICE_TYPE](state: S, payload: AppType): void;
 };
 
 /**
@@ -57,6 +61,10 @@ export interface RootActionsTypes {
   [ROOT_STORE.ACTIONS.USER_LISTS](
     { dispatch }: AugmentedActionContextRoot,
     payload: IUserData[]
+  ): void;
+  [ROOT_STORE.ACTIONS.DEVICE_TYPE](
+    { dispatch }: AugmentedActionContextRoot,
+    payload: AppType
   ): void;
 }
 

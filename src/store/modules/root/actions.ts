@@ -1,6 +1,7 @@
 import { ActionTree } from "vuex";
 import { RootActionsTypes, IRootState, IUserData } from "@/store/interfaces";
 import { COUNTER_STORE, ROOT_STORE } from "@/store/constants";
+import { AppType } from "@/shared/interfaces";
 
 export const actions: ActionTree<IRootState, IRootState> & RootActionsTypes = {
   [ROOT_STORE.ACTIONS.UPDATE_VERSION]({ commit }, payload: string) {
@@ -12,5 +13,8 @@ export const actions: ActionTree<IRootState, IRootState> & RootActionsTypes = {
   },
   [ROOT_STORE.ACTIONS.USER_LISTS](context, payload: IUserData[]) {
     context.commit(ROOT_STORE.MUTATIONS.USER_LISTS, payload);
+  },
+  [ROOT_STORE.ACTIONS.DEVICE_TYPE](context, payload: AppType) {
+    context.commit(ROOT_STORE.MUTATIONS.DEVICE_TYPE, payload);
   }
 };

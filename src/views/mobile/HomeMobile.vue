@@ -395,7 +395,7 @@
   </div>
   <div class="relative">
     <div
-      class="fixed bottom-0 flex w-full border-t border-b text-grey-1 bg-white"
+      class="fixed bottom-0 flex w-full border-t border-b text-grey-1 bg-white text-center"
     >
       <a href="#skills" class="flex-1  p-10 border-l font-bold text-black-2"
         >Skills</a

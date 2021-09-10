@@ -108,3 +108,76 @@ textarea {
 .TypeScript {
   color: #2b7489;
 }
+
+.social-media-div {
+  font-size: 2em;
+}
+
+.icon-button {
+  margin-bottom: 10px;
+}
+
+.icon-button i {
+  color: #fff;
+  border-radius: 2.6rem;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1.3rem;
+  height: 2.6rem;
+  line-height: 2.6rem;
+  margin: 0 5px;
+  position: relative;
+  text-align: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 2.6rem;
+  margin-bottom: 10px;
+  transition: 0.2s ease-in;
+}
+
+.linkedin i {
+  background-color: #0e76a8;
+}
+
+.github i {
+  background-color: #333;
+}
+
+.google i {
+  background-color: #ea4335;
+}
+
+.medium i {
+  background-color: #000;
+}
+
+.stack-overflow i {
+  background-color: #f48024;
+}
+
+/* Hover Transition */
+.google i:hover,
+.github i:hover,
+.linkedin i:hover,
+.stack-overflow i:hover,
+.medium i:hover {
+  background-color: #000;
+}
+
+/* Media Query */
+@media (max-width: 768px) {
+  .social-media-div {
+    text-align: center;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.color-tag::before {
+  content: " \25CF";
+  font-size: 22px;
+}

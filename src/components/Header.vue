@@ -7,20 +7,24 @@
     </div>
     <div class="nav-contents">
       <ul class="flex">
-        <li class="px-14 py-12  text-20 hover\:bg-black:hover">
-          <a class="text-black decoration-none" href="#">Skills</a>
+        <li class="px-14 py-12  text-20">
+          <a class="text-black decoration-none" href="#work"
+            >Work Experiences</a
+          >
         </li>
         <li class="px-14 py-12  text-20">
-          <a class="text-black decoration-none" href="#">Work Experiences</a>
+          <a class="text-black decoration-none" href="#open-source"
+            >Open Source</a
+          >
         </li>
         <li class="px-14 py-12  text-20">
-          <a class="text-black decoration-none" href="#">Open Source</a>
+          <a class="text-black decoration-none" href="#blog">Blogs</a>
+        </li>
+        <li class="px-14 py-12  text-20 ">
+          <a class="text-black decoration-none" href="#skills">Skills</a>
         </li>
         <li class="px-14 py-12  text-20">
-          <a class="text-black decoration-none" href="#">Blogs</a>
-        </li>
-        <li class="px-14 py-12  text-20">
-          <a class="text-black decoration-none" href="#">Contact Me</a>
+          <a class="text-black decoration-none" href="#contact">Contact Me</a>
         </li>
       </ul>
     </div>

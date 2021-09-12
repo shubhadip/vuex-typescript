@@ -11,6 +11,7 @@ export interface IRootState {
   root: boolean;
   version: string;
   userlists: any[];
+  isMobile: boolean;
 }
 
 export interface IMergedState extends IRootState {
@@ -21,11 +22,16 @@ export interface IMergedState extends IRootState {
 export interface IRootGettersTypes {
   [ROOT_STORE.GETTERS.UPDATE_VERSION](state: IRootState): string;
   [ROOT_STORE.GETTERS.USER_LISTS](state: IRootState): IUserData[];
+  [ROOT_STORE.GETTERS.IS_MOBILE_DEVICE](state: IRootState): boolean;
 }
 
 export type RootMutationsTypes<S = IRootState> = {
   [ROOT_STORE.MUTATIONS.UPDATE_VERSION](state: S, payload: string): void;
   [ROOT_STORE.MUTATIONS.USER_LISTS](state: S, payload: IUserData[]): void;
+  [ROOT_STORE.MUTATIONS.IS_MOBILE_DEVICE](
+    state: IRootState,
+    payload: boolean
+  ): void;
 };
 
 /**
@@ -57,6 +63,10 @@ export interface RootActionsTypes {
   [ROOT_STORE.ACTIONS.USER_LISTS](
     { dispatch }: AugmentedActionContextRoot,
     payload: IUserData[]
+  ): void;
+  [ROOT_STORE.ACTIONS.IS_MOBILE_DEVICE](
+    { dispatch }: AugmentedActionContextRoot,
+    payload: boolean
   ): void;
 }
 

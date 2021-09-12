@@ -12,5 +12,8 @@ export const actions: ActionTree<IRootState, IRootState> & RootActionsTypes = {
   },
   [ROOT_STORE.ACTIONS.USER_LISTS](context, payload: IUserData[]) {
     context.commit(ROOT_STORE.MUTATIONS.USER_LISTS, payload);
+  },
+  [ROOT_STORE.ACTIONS.IS_MOBILE_DEVICE]: (context, payload: boolean): void => {
+    context.commit(ROOT_STORE.MUTATIONS.IS_MOBILE_DEVICE, payload);
   }
 };

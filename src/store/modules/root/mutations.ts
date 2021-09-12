@@ -8,5 +8,8 @@ export const mutations: MutationTree<IRootState> & RootMutationsTypes = {
   },
   [ROOT_STORE.MUTATIONS.USER_LISTS](state, payload: IUserData[]) {
     state.userlists = payload;
+  },
+  [ROOT_STORE.MUTATIONS.IS_MOBILE_DEVICE](state, payload: boolean) {
+    state.isMobile = payload;
   }
 };

@@ -7,8 +7,10 @@ const PORT = process.env.PORT || 4455;
 const manifest = require("../dist/server/ssr-manifest.json");
 const appPath = path.join(__dirname, "../dist", "server", manifest["app.js"]);
 const App = require(appPath).default;
-
+const MobileDetect = require("mobile-detect");
 const server = express();
+
+// todo: need to transpile this to use import statement directly
 
 server.use(
   "/img",
@@ -30,7 +32,11 @@ server.use(
 
 server.get("*", async (req, res) => {
   const { app, router, store } = await App(req);
-
+  const md = new MobileDetect(
+    req.headers['user-agent']
+  );
+  store.dispatch('IS_MOBILE_DEVICE', !!md.mobile());
+  
   await router.push(req.url);
   await router.isReady();
 

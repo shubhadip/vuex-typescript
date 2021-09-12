@@ -10,6 +10,6 @@ const { app, router, store } = createApp();
   if (storeInitialState) {
     s.replaceState(storeInitialState);
   }
-
+  
   a.mount("#app", true);
 })(router, app, store);
